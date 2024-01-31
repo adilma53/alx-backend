@@ -16,3 +16,10 @@ class BasicCache(BaseCaching):
         """ Get an item by key
         """
         return self.cache_data.get(key, None)
+
+    def print_cache(self):
+        """ Print the cache content
+        """
+        print("Current cache:")
+        for k, v in self.cache_data.items():
+            print(f"{k}: {v}")
