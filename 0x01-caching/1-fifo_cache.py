@@ -24,7 +24,8 @@ class FIFOCache(BaseCaching):
     def get(self, key):
         """ Get an item by key
         """
-        return self.cache_data.get(key, None)
+        if key and key in self.cache_data.get:
+            return self.cache_data[key]
 
     def print_cache(self):
         """ Print the cache content
