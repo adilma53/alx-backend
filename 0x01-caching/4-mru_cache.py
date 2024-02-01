@@ -6,7 +6,7 @@ from base_caching import BaseCaching
 from collections import OrderedDict
 
 
-class LRUCache(BaseCaching):
+class MRUCache(BaseCaching):
     """class fifo"""
     def __init__(self):
         """init"""
@@ -23,8 +23,8 @@ class LRUCache(BaseCaching):
             if key in self.lru:
                 # Update the value and move the key to the end
 
-                value = self.cache.pop(key)
-                self.cache[key] = value
+                value = self.lru.pop(key)
+                self.lru[key] = value
             else:
                 self.lru[key] = item
 
@@ -40,6 +40,6 @@ class LRUCache(BaseCaching):
         """ Get an item by key
         """
         if key and key in self.cache_data.keys() and key in self.lru:
-            value = self.cache.pop(key)
-            self.cache[key] = value
+            value = self.lru.pop(key)
+            self.lru[key] = value
             return self.cache_data.get(key, None)
