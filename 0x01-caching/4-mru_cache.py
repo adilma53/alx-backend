@@ -30,7 +30,7 @@ class MRUCache(BaseCaching):
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
 
-                discard = self.mru.pop(-1)
+                discard = self.mru.pop(-2)
                 del self.cache_data[discard]
 
                 print('DISCARD:', discard)
