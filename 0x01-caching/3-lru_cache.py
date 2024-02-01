@@ -43,10 +43,3 @@ class LRUCache(BaseCaching):
         if key and key in self.cache_data.keys() and key in self.lru:
             self.lru.move_to_end(key)
             return self.cache_data.get(key, None)
-
-    def print_cache(self):
-        """ Print the cache content
-        """
-        print("Current cache:")
-        for k, v in self.cache_data.items():
-            print(f"{k}: {v}")
