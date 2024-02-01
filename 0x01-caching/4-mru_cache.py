@@ -30,11 +30,10 @@ class MRUCache(BaseCaching):
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
 
-                last_item_key = self.mru.pop(len(self.cache_data)-1)
+                discard = self.mru.pop(-2)
+                del self.cache_data[discard]
 
-                self.cache_data.pop(last_item_key)
-
-                print('DISCARD:', last_item_key)
+                print('DISCARD:', discard)
 
     def get(self, key):
         """ Get an item by key
